@@ -24,33 +24,30 @@ export function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
   }, [currentUser]);
 
   return (
-    <>
-      <PopupWithForm
-        title={"Обновить аватар"}
-        name={"avatar"}
-        isOpen={isOpen}
-        onClose={onClose}
-        buttonText={"Обновить"}
-        onSubmit={handleSubmit}
-      >
-        <section className="popup__section">
-          <input
-            type="url"
-            placeholder="Ссылка на аватар"
-            name="avatar"
-            className="popup__input"
-            id="popup__avatar-link"
-            required=""
-            minLength={2}
-            maxLength={200}
-            value={image}
-            onChange={imageInput}
-          />
-          <div className="popup__line" />
-          <span className="popup__input-error" id="link-name-erorr" />
-        </section>
-      </PopupWithForm>
-      ;
-    </>
+    <PopupWithForm
+      title={"Обновить аватар"}
+      name={"avatar"}
+      isOpen={isOpen}
+      onClose={onClose}
+      buttonText={"Обновить"}
+      onSubmit={handleSubmit}
+    >
+      <section className="popup__section">
+        <input
+          type="url"
+          placeholder="Ссылка на аватар"
+          name="avatar"
+          className="popup__input"
+          id="popup__avatar-link"
+          required=""
+          minLength={2}
+          maxLength={200}
+          value={image}
+          onChange={imageInput}
+        />
+        <div className="popup__line" />
+        <span className="popup__input-error" id="link-name-erorr" />
+      </section>
+    </PopupWithForm>
   );
 }

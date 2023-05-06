@@ -19,7 +19,6 @@ export const Login = ({ isLoqqed, onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs);
     onLogin(inputs);
   };
 

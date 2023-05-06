@@ -300,5 +300,8 @@ function App() {
     </CurrentUserContext.Provider>
   );
 }
-
+// не заходит из-за ошибки 500 (ошибка на стороне сервера)
+//Failed to load resource: the server responded with a status of 500 (Internal Server Error)
+//Error: На сервере произошла ошибка
+// infoTooltip показывает нужную информацию
 export default App;

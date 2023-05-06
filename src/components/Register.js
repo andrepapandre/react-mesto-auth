@@ -23,8 +23,7 @@ function Register({ isLogged, onRegister }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputs);
-    onRegister(userData).then();
+    onRegister(userData);
   };
 
   if (isLogged) {

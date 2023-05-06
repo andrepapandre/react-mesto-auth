@@ -20,12 +20,11 @@ export default function InfoTooltip({ boolean, isOpen, onClose }) {
             {boolean ? successfulMessage : failedMessage}
           </h1>
           <button
-          type="button"
-          onClick={onClose}
-          className="popup__close-button"
-        />
+            type="button"
+            onClick={onClose}
+            className="popup__close-button"
+          />
         </section>
-       
       </div>
     </>
   );
