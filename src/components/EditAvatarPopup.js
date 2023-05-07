@@ -38,7 +38,6 @@ export function EditAvatarPopup({ isOpen, onClose, onUpdateAvatar }) {
           placeholder="Ссылка на аватар"
           name="avatar"
           className="popup__input"
-          id="popup__avatar-link"
           required=""
           minLength={2}
           maxLength={200}

@@ -24,41 +24,39 @@ export function Card(props) {
   }`;
 
   return (
-    <>
-      <article className="element">
-        <img
-          className="element__image"
-          onClick={handleClick}
-          src={props.card.link}
-          alt={props.card.link}
-          type="src"
-        />
-        {isOwn && (
+    <article className="element">
+      <img
+        className="element__image"
+        onClick={handleClick}
+        src={props.card.link}
+        alt={props.card.link}
+        type="src"
+      />
+      {isOwn && (
+        <button
+          type="button"
+          onClick={handleDeleteClick}
+          className="element__delete-btn"
+        ></button>
+      )}
+
+      <div className="element__bottom">
+        <h2 type="text" className="element__title" id="kokoko">
+          {props.card.name}
+        </h2>
+        <div
+          className="element__like-zone"
+          style={{ display: "flex", flexDirection: "column" }}
+        >
           <button
             type="button"
-            onClick={handleDeleteClick}
-            className="element__delete-btn"
-          ></button>
-        )}
-
-        <div className="element__bottom">
-          <h2 type="text" className="element__title" id="kokoko">
-            {props.card.name}
-          </h2>
-          <div
-            className="element__like-zone"
-            style={{ display: "flex", flexDirection: "column" }}
-          >
-            <button
-              type="button"
-              onClick={handleCardLike}
-              className={cardLikeButtonClassName}
-              id="like"
-            />
-            <p className="element__like-counter">{props.card.likes.length}</p>
-          </div>
+            onClick={handleCardLike}
+            className={cardLikeButtonClassName}
+            id="like"
+          />
+          <p className="element__like-counter">{props.card.likes.length}</p>
         </div>
-      </article>
-    </>
+      </div>
+    </article>
   );
 }

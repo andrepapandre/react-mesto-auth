@@ -14,11 +14,11 @@ export function AddPlacePopup({ isOpen, onClose, handleAddPlaceSubmit }) {
   const [name, setName] = React.useState("");
   const [link, setLink] = React.useState("");
 
-  function inputName(e) {
+  function changeInputName(e) {
     setName(e.target.value);
   }
 
-  function linkInput(e) {
+  function changeLinkInput(e) {
     setLink(e.target.value);
   }
 
@@ -42,7 +42,7 @@ export function AddPlacePopup({ isOpen, onClose, handleAddPlaceSubmit }) {
           minLength={2}
           maxLength={40}
           value={name}
-          onChange={inputName}
+          onChange={changeInputName}
         />
         <div className="popup__line" />
         <span className="popup__input-error" id="title-name-error" />
@@ -58,7 +58,7 @@ export function AddPlacePopup({ isOpen, onClose, handleAddPlaceSubmit }) {
           minLength={2}
           maxLength={200}
           value={link}
-          onChange={linkInput}
+          onChange={changeLinkInput}
         />
         <div className="popup__line" />
         <span className="popup__input-error" id="link-name-error" />

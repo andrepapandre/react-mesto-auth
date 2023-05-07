@@ -133,7 +133,10 @@ function App() {
       })
       .then((res) => {
         setCurrentUser(res);
-        handleDelete();
+        closeAllPopups();
+      })
+      .catch((e) => {
+        console.log(e);
       });
   }
 
@@ -142,13 +145,13 @@ function App() {
       .editAvatarImage(avatar)
       .then((res) => {
         setCurrentUser(res);
-        handleDelete();
+        closeAllPopups();
       })
       .catch((err) => {
         console.log(err);
       });
   }
-  const handleDelete = () => {
+  const closeAllPopups = () => {
     setIsEditProfilePopupOpen(false);
     setisEditAvatarPopupOpen(false);
     setisAddPlacePopupOpen(false);
@@ -165,7 +168,7 @@ function App() {
       .then((res) => {
         const newCard = res;
         setCards([newCard, ...cards]);
-        handleDelete();
+        closeAllPopups();
       })
       .catch((err) => {
         console.log(err);
@@ -194,8 +197,6 @@ function App() {
           setLoggedIn(true);
           setUserData(res.user);
         }
-        console.log("res.user", res.user);
-        console.log("cbreg(then):", res);
         onStatus(true);
       })
       .catch((e) => {
@@ -271,16 +272,16 @@ function App() {
         <EditProfilePopup
           onUpdateUser={handleUpdateUser}
           isOpen={isEditProfilePopupOpen}
-          onClose={handleDelete}
+          onClose={closeAllPopups}
         />
         <EditAvatarPopup
           isOpen={isEditAvatarPopupOpen}
-          onClose={handleDelete}
+          onClose={closeAllPopups}
           onUpdateAvatar={handleUpdateAvatar}
         />
         <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
-          onClose={handleDelete}
+          onClose={closeAllPopups}
           handleAddPlaceSubmit={handleAddPlaceSubmit}
         />
         <PopupWithForm
@@ -290,18 +291,19 @@ function App() {
         >
           <button type="button" className="popup__close-button" />
         </PopupWithForm>
-        <ImagePopup card={selectedCard} onClose={handleDelete} />
+        <ImagePopup card={selectedCard} onClose={closeAllPopups} />
         <InfoTooltip
           boolean={message}
           isOpen={isStatusOpen}
-          onClose={handleDelete}
+          onClose={closeAllPopups}
         />
       </div>
     </CurrentUserContext.Provider>
   );
 }
-// не заходит из-за ошибки 500 (ошибка на стороне сервера)
-//Failed to load resource: the server responded with a status of 500 (Internal Server Error)
-//Error: На сервере произошла ошибка
-// infoTooltip показывает нужную информацию
+// Сервер у меня лично заработал, все показывает, infoTooltip тоже!
+// К сожалению вынужден не исправлять пометки "Можно лучше",
+// нахожусь в командировке, + через 7 дней жесткий ДД, а у меня был последний академ
+// Однако спасибо за эти пометки, они очень полезны  для улучшения кода!
+
 export default App;

@@ -38,8 +38,8 @@ export const Login = ({ isLoqqed, onLogin }) => {
         <h3 className="auth__title">Вxод</h3>
         <form onSubmit={handleSubmit} className="auth__form">
           <input
-            id="username"
             required
+            autoComplete="true"
             name="email"
             type="text"
             placeholder="Email:"
@@ -48,8 +48,8 @@ export const Login = ({ isLoqqed, onLogin }) => {
             className="auth__input"
           />
           <input
-            id="password"
             required
+            autoComplete="true"
             name="password"
             type="password"
             placeholder="Пароль:"

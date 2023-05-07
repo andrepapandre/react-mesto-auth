@@ -7,8 +7,6 @@ function Register({ isLogged, onRegister }) {
     email: "",
     password: "",
   });
-  const [message, setMessage] = React.useState();
-  const [inputs, setInputs] = React.useState(userData);
 
   const handleChange = useCallback(
     (e) => {
@@ -41,8 +39,8 @@ function Register({ isLogged, onRegister }) {
         <h3 className="auth__title">Регистрация</h3>
         <form onSubmit={handleSubmit} className="auth__form">
           <input
+            autoComplete="true"
             placeholder="Email:"
-            id="email"
             name="email"
             type="email"
             value={userData.email || ""}
@@ -50,7 +48,7 @@ function Register({ isLogged, onRegister }) {
             className="auth__input"
           />
           <input
-            id="password"
+            autoComplete="true"
             name="password"
             type="password"
             placeholder="Пароль:"
