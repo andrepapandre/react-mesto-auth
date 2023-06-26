@@ -34,6 +34,9 @@ class Auth {
 
   checkToken(token) {
     const url = `${this._baseUrl}/users/me`;
+    this.token = token
+    console.log('token in auth.js', token)
+    console.log(this.token);
     return fetch(url, {
       method: "GET",
       headers: {

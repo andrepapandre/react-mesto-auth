@@ -38,6 +38,14 @@ function App() {
 
   const navigate = useNavigate();
 
+    React.useEffect(() => {
+    const isToken = localStorage.getItem("token");
+    if (isToken) {
+      api
+        .setAuthHeaders(isToken);
+    }
+  }, []);
+
   React.useEffect(() => {
     Promise.all([api.getUserInfo(), api.renderCards()])
       .then((res) => {
@@ -180,6 +188,7 @@ function App() {
       .authorize({ email, password })
       .then((res) => {
         if (res.token) localStorage.setItem("token", res.token);
+        api.setAuthHeaders(res.token);
         setLoggedIn(true);
         navigate("/");
       })
@@ -224,6 +233,8 @@ function App() {
         .catch(console.error);
     }
   }, [navigate]);
+
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
